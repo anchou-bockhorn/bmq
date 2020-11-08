@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class HttpUser {
     @GetMapping("/")
     String all() {
-        return "banana";
+        return "bananas chiquita";
     }
 }
