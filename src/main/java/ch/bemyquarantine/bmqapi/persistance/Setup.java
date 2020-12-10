@@ -2,7 +2,7 @@ package ch.bemyquarantine.bmqapi.persistance;
 
 import ch.bemyquarantine.bmqapi.user.Gender;
 import ch.bemyquarantine.bmqapi.user.RelationTyp;
-import ch.bemyquarantine.bmqapi.user.UserDetail;
+import ch.bemyquarantine.bmqapi.user.User;
 import com.mongodb.client.model.geojson.NamedCoordinateReferenceSystem;
 import com.mongodb.client.model.geojson.Point;
 import com.mongodb.client.model.geojson.Position;
@@ -20,7 +20,7 @@ public class Setup {
     InitializingBean seedDb(UserRepo userRepo) {
         return () -> {
             userRepo.deleteAll();
-            userRepo.save(new UserDetail()
+            userRepo.save(new User()
                     .setActive(true)
                     .setDateOfBirth(new GregorianCalendar(1994, Calendar.AUGUST, 17).getTime())
                     .setGender(Gender.MALE)
@@ -28,7 +28,7 @@ public class Setup {
                     .setResidence(new Point(NamedCoordinateReferenceSystem.CRS_84, new Position(-73.564453125, 42.114523952464246)))
                     .setUsername("Rabia"));
 
-            UserDetail user2 = new UserDetail()
+            User user2 = new User()
                     .setActive(true)
                     .setDateOfBirth(new GregorianCalendar(1991, Calendar.NOVEMBER, 28).getTime())
                     .setGender(Gender.MALE)

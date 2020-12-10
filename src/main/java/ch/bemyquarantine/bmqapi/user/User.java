@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Document
-public class UserDetail {
+public class User {
 
     @Id
     private BigInteger id;
@@ -28,7 +28,7 @@ public class UserDetail {
         return active;
     }
 
-    public UserDetail setActive(boolean active) {
+    public User setActive(boolean active) {
         this.active = active;
         return this;
     }
@@ -37,7 +37,7 @@ public class UserDetail {
         return username;
     }
 
-    public UserDetail setUsername(String username) {
+    public User setUsername(String username) {
         this.username = username;
         return this;
     }
@@ -46,7 +46,7 @@ public class UserDetail {
         return gender;
     }
 
-    public UserDetail setGender(Gender gender) {
+    public User setGender(Gender gender) {
         this.gender = gender;
         return this;
     }
@@ -55,7 +55,7 @@ public class UserDetail {
         return dateOfBirth;
     }
 
-    public UserDetail setDateOfBirth(Date dateOfBirth) {
+    public User setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
         return this;
     }
@@ -64,7 +64,7 @@ public class UserDetail {
         return residence;
     }
 
-    public UserDetail setResidence(Point residence) {
+    public User setResidence(Point residence) {
         this.residence = residence;
         return this;
     }
@@ -73,7 +73,7 @@ public class UserDetail {
         return gendersOfInterest;
     }
 
-    public UserDetail setGendersOfInterest(Set<Gender> gendersOfInterest) {
+    public User setGendersOfInterest(Set<Gender> gendersOfInterest) {
         this.gendersOfInterest = gendersOfInterest;
         return this;
     }
@@ -82,7 +82,7 @@ public class UserDetail {
         return relationTyp;
     }
 
-    public UserDetail setRelationTyp(RelationTyp relationTyp) {
+    public User setRelationTyp(RelationTyp relationTyp) {
         this.relationTyp = relationTyp;
         return this;
     }
@@ -105,7 +105,7 @@ public class UserDetail {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserDetail that = (UserDetail) o;
+        User that = (User) o;
         return active == that.active &&
                 id.equals(that.id) &&
                 username.equals(that.username) &&
