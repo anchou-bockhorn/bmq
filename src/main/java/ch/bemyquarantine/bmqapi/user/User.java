@@ -24,6 +24,10 @@ public class User {
     private Set<Gender> gendersOfInterest;
     private RelationTyp relationTyp;
 
+    public BigInteger getId() {
+        return id;
+    }
+
     public boolean isActive() {
         return active;
     }
