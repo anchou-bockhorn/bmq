@@ -24,6 +24,7 @@ public class BmqApiApplication extends WebSecurityConfigurerAdapter {
                 .exceptionHandling(e -> e
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
                 )
-                .oauth2Login();
+                .oauth2Login()
+                .and().csrf().disable(); // todo: remove
     }
 }
