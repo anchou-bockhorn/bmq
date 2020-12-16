@@ -1,5 +1,6 @@
 package ch.bemyquarantine.bmqapi.http;
 
+import ch.bemyquarantine.bmqapi.error.ResourceNotFoundException;
 import ch.bemyquarantine.bmqapi.persistance.UserRepo;
 import ch.bemyquarantine.bmqapi.user.User;
 import org.springframework.http.HttpStatus;
@@ -36,15 +37,13 @@ public class HttpUser {
 
     @PutMapping("/user/{id}")
     public User updateUser(@PathVariable String id, @RequestBody User user) {
-        if (user.getId().equals(new BigInteger(id))) {
-            return userRepo.save(user);
-        } else {
-            return new User();
-        }
+        return userRepo.findById(new BigInteger(id))
+                .map(u -> userRepo.save(u.update(user)))
+                .orElseThrow(() -> new ResourceNotFoundException("User with id:'" + id + "' not found"));
     }
 
     @DeleteMapping("/user/{id}")
     public void deleteUser(@PathVariable String id) {
-        userRepo.deleteById(new BigInteger(id));
+        userRepo.findById(new BigInteger(id)).ifPresent(userRepo::delete);
     }
 }

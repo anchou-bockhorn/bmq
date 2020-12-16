@@ -91,6 +91,19 @@ public class User {
         return this;
     }
 
+    public User update(User user) {
+        if (user.getRelationTyp() != null) this.setRelationTyp(user.getRelationTyp());
+        if (user.getDateOfBirth() != null) this.setDateOfBirth(user.getDateOfBirth());
+        if (user.getGendersOfInterest() != null) this.setGendersOfInterest(user.getGendersOfInterest());
+        if (user.getGender() != null) this.setGender(user.getGender());
+        if (user.getResidence() != null) this.setResidence(user.getResidence());
+        if (user.getUsername() != null) this.setUsername(user.getUsername());
+
+        this.setActive(user.isActive());
+
+        return this;
+    }
+
     @Override
     public String toString() {
         return "UserDetail{" +
