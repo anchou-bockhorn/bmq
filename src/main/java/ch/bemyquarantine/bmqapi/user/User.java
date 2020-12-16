@@ -1,8 +1,10 @@
 package ch.bemyquarantine.bmqapi.user;
 
+import ch.bemyquarantine.bmqapi.attitude.Answer;
 import com.mongodb.client.model.geojson.Point;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigInteger;
@@ -12,17 +14,20 @@ import java.util.Set;
 
 @Document
 public class User {
-
     @Id
     private BigInteger id;
     private boolean active;
     private String username;
     private Gender gender;
     private Date dateOfBirth;
-    @GeoSpatialIndexed(name = "Residence")
-    private Point residence;
     private Set<Gender> gendersOfInterest;
     private RelationTyp relationTyp;
+
+    @GeoSpatialIndexed(name = "Residence")
+    private Point residence;
+
+    @DBRef
+    private Set<Answer> answer;
 
     public BigInteger getId() {
         return id;

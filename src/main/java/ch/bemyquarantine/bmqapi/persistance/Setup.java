@@ -17,9 +17,12 @@ import java.util.GregorianCalendar;
 @Configuration
 public class Setup {
     @Bean
-    InitializingBean seedDb(UserRepo userRepo) {
+    InitializingBean seedDb(UserRepo userRepo, AnswerRepo answerRepo, QuestionRepo questionRepo) {
         return () -> {
             userRepo.deleteAll();
+            answerRepo.deleteAll();
+            questionRepo.deleteAll();
+
 /*
             userRepo.save(new User()
                     .setActive(true)
