@@ -18,7 +18,14 @@ public class BmqApiApplication extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests(a -> a
-                        .antMatchers("/user", "/user/**", "/answer", "/answer/**").permitAll()
+                        .antMatchers(
+                                "/user",
+                                "/user/**",
+                                "/answer",
+                                "/answer/**",
+                                "/question",
+                                "/question/**"
+                        ).permitAll()
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(e -> e

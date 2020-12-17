@@ -5,5 +5,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.math.BigInteger;
 
-public interface AnswerRepo extends MongoRepository<Answer, BigInteger> {
+public interface AnswerRepo extends MongoRepository<Answer, BigInteger>, CustomizedAnswerRepo {
 }

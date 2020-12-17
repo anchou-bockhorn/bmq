@@ -4,6 +4,8 @@ cd user
 
 ./createUsers.sh
 
-cd ../answer
+cd ../question
 
-./createAnswers.sh
+./createQuestions.sh
+
+
